@@ -12,10 +12,13 @@ public class Application {
 //        System.out.println("computers = " + computers);
 
         Judgment judgment = new Judgment();
-        int count = judgment.correctCount(
-                Arrays.asList(1, 2, 3),
-                Arrays.asList(1, 2, 3)
-        );
-        System.out.println("count = " + count);
+//        int count = judgment.correctCount(
+//                Arrays.asList(1, 2, 3),
+//                Arrays.asList(1, 2, 3)
+//        );
+//        System.out.println("count = " + count);
+
+        boolean check = judgment.hasPlace(Arrays.asList(7, 8, 9), 0, 7);
+        System.out.println("check = " + check);
     }
 }
