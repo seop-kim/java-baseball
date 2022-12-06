@@ -1,12 +1,9 @@
 package baseball.domain;
 
+import baseball.Message;
 import java.util.List;
 
 public class PlayerValidator {
-    private static final String RETRY = "1";
-    private static final String NO_RETRY = "2";
-    private static final String RETRY_EXCEPTION_MSG = "1과 2의 값만 입력이 가능합니다.";
-
     public void inputValidation(String data) {
         inputLengthValidation(data);
         inputNumberValidation(data);
@@ -29,8 +26,8 @@ public class PlayerValidator {
     }
 
     public void retryValidation(String input) {
-        if (!(input.equals(RETRY) || input.equals(NO_RETRY))) {
-            throw new IllegalArgumentException(RETRY_EXCEPTION_MSG);
+        if (!(input.equals(Message.text(Message.RETRY)) || input.equals(Message.text(Message.NO_RETRY)))) {
+            throw new IllegalArgumentException();
         }
     }
 
