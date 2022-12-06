@@ -3,13 +3,13 @@ package baseball.user;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-import baseball.exception.UserInputException;
+import baseball.domain.PlayerFunction;
 import java.util.List;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 class UserFunctionTest {
-    UserFunction user = new UserFunction();
+    PlayerFunction user = new PlayerFunction();
 
     @Nested
     class LengthCheckTest {

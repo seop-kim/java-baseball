@@ -1,4 +1,4 @@
-package baseball.user;
+package baseball.domain;
 
 import baseball.exception.UserInputException;
 import camp.nextstep.edu.missionutils.Console;
