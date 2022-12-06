@@ -1,57 +1,55 @@
 package baseball.view;
 
-public class OutputView {
-    private static final String START_MSG = "숫자 야구 게임을 시작합니다.";
-    private static final String REQUEST_INPUT_MSH = "숫자를 입력해주세요 : ";
-    private static final String SCORE_NO_MATCH = "낫싱";
-    private static final String SCORE_ALL_MATCH = "%d볼 %d스트라이크\n";
-    private static final String SCORE_BALL_MATCH = "%d볼\n";
-    private static final String SCORE_STRIKE_MATCH = "%d스트라이크\n";
-    private static final String GAME_FINISH_MSG = "3개의 숫자를 모두 맞히셨습니다! 게임 종료";
-    private static final String REQUEST_RETRY_MSG = "게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.";
+import baseball.Message;
 
-    public void printScore(int strikeScore, int ballScore) {
-        finishGame(strikeScore, ballScore);
-        zeroScore(strikeScore, ballScore);
-        oneScoreMatch(strikeScore, ballScore);
-        allScore(strikeScore, ballScore);
+public class OutputView {
+    private static int STRIKE_SCORE;
+    private static int BALL_SCORE;
+
+    public OutputView() {
+        System.out.println(Message.text(Message.START_MSG));
     }
 
-    public void printGameStart() {
-        System.out.println(START_MSG);
+    public void printScore(int strikeScore, int ballScore) {
+        STRIKE_SCORE = strikeScore;
+        BALL_SCORE = ballScore;
+        finishGame();
+        zeroScore();
+        oneScoreMatch();
+        allScore();
     }
 
     public void printInputRequest() {
-        System.out.print(REQUEST_INPUT_MSH);
+        System.out.print(Message.text(Message.REQUEST_INPUT_MSG));
     }
 
-    private void zeroScore(int strikeScore, int ballScore) {
-        if (strikeScore == 0 && ballScore == 0) {
-            System.out.println(SCORE_NO_MATCH);
+    private void zeroScore() {
+        if (STRIKE_SCORE == 0 && BALL_SCORE == 0) {
+            System.out.println(Message.text(Message.SCORE_NO_MATCH));
         }
     }
 
-    private void allScore(int strikeScore, int ballScore) {
-        if (strikeScore != 0 && ballScore != 0 && strikeScore <= 3 && ballScore <= 3) {
-            System.out.printf(SCORE_ALL_MATCH, ballScore, strikeScore);
+    private void allScore() {
+        if (STRIKE_SCORE != 0 && BALL_SCORE != 0 && STRIKE_SCORE <= 3 && BALL_SCORE <= 3) {
+            System.out.printf(Message.text(Message.SCORE_ALL_MATCH), BALL_SCORE, STRIKE_SCORE);
         }
     }
 
-    private void finishGame(int strikeScore, int ballScore) {
-        if (strikeScore == 3 && ballScore == 0) {
-            System.out.printf(SCORE_STRIKE_MATCH, strikeScore);
-            System.out.println(GAME_FINISH_MSG);
-            System.out.println(REQUEST_RETRY_MSG);
+    private void finishGame() {
+        if (STRIKE_SCORE == 3 && BALL_SCORE == 0) {
+            System.out.printf(Message.text(Message.SCORE_STRIKE_MATCH), STRIKE_SCORE);
+            System.out.println(Message.text(Message.GAME_FINISH_MSG));
+            System.out.println(Message.text(Message.REQUEST_RETRY_MSG));
         }
     }
 
-    private void oneScoreMatch(int strikeScore, int ballScore) {
-        if (strikeScore == 0 && ballScore <= 3) {
-            System.out.printf(SCORE_BALL_MATCH, ballScore);
+    private void oneScoreMatch() {
+        if (STRIKE_SCORE == 0 && BALL_SCORE != 0 && BALL_SCORE <= 3) {
+            System.out.printf(Message.text(Message.SCORE_BALL_MATCH), BALL_SCORE);
         }
 
-        if (ballScore == 0 && strikeScore <= 3) {
-            System.out.printf(SCORE_STRIKE_MATCH, strikeScore);
+        if (BALL_SCORE == 0 && STRIKE_SCORE != 0 && STRIKE_SCORE < 3) {
+            System.out.printf(Message.text(Message.SCORE_STRIKE_MATCH), STRIKE_SCORE);
         }
     }
 
