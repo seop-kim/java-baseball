@@ -1,73 +1,41 @@
 package baseball.domain;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class PlayerValidator {
-
-    private List<Integer> numbers = new ArrayList<>();
-    private String data;
-    private int[] numberArr;
-
     // game, retry validator
 
-    public List<Integer> gameValidation(String data) {
-        inputLengthValidation();
-        inputNumberValidation();
-        inputToNumberArr();
-        numberArrValidation();
-        numberArrToNumbers();
-        numbersValidation();
-        return null;
+    public void inputValidation(String data) {
+        inputLengthValidation(data);
+        inputNumberValidation(data);
     }
 
-
-    public List<Integer> getNumbers() {
-        return numbers;
-    }
-
-    private void inputLengthValidation() {
-        if (data.length() != 3) {
-            throw new IllegalArgumentException();
-        }
-    }
-
-    private void inputNumberValidation() {
-        try {
-            Integer.parseInt(data);
-        } catch (IllegalArgumentException e) {
-            throw new IllegalArgumentException();
-        }
-    }
-
-    private void inputToNumberArr() {
-        numberArr = Stream.of(data.split(""))
-                .mapToInt(Integer::parseInt)
-                .toArray();
-    }
-
-    private void numberArrValidation() {
+    public void numberArrValidation(int[] numberArr) {
         for (int inputNum : numberArr) {
             numberRangeValidation(inputNum);
         }
     }
 
-    private void numberArrToNumbers() {
-        numbers = Arrays
-                .stream(numberArr)
-                .boxed()
-                .collect(Collectors.toList());
-    }
-
-    private void numbersValidation() {
+    public void numbersValidation(List<Integer> numbers) {
         int checkDataSize = (int) numbers
                 .stream()
                 .distinct()
                 .count();
         if (numbers.size() != checkDataSize) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    private void inputLengthValidation(String data) {
+        if (data.length() != 3) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    private void inputNumberValidation(String data) {
+        try {
+            Integer.parseInt(data);
+        } catch (IllegalArgumentException e) {
             throw new IllegalArgumentException();
         }
     }
