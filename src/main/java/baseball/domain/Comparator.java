@@ -2,7 +2,7 @@ package baseball.domain;
 
 import java.util.List;
 
-public class GameFunction {
+public class Comparator {
 
     private static final String RETRY = "1";
     private static final String NO_RETRY = "2";
@@ -47,6 +47,4 @@ public class GameFunction {
         }
         throw new IllegalArgumentException(RETRY_EXCEPTION_MSG);
     }
-
-
 }
