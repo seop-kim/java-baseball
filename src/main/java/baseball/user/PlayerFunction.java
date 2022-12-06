@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class UserFunction {
+public class PlayerFunction {
 
     public List<Integer> createUserList(String input) {
         if (!inputLengthCheck(input)) {
