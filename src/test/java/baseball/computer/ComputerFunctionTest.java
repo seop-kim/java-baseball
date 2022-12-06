@@ -1,12 +1,12 @@
 package baseball.computer;
 
-import baseball.domain.ComputerFunction;
+import baseball.domain.NumbersGenerator;
 import java.util.List;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 class ComputerFunctionTest {
-    ComputerFunction com = new ComputerFunction();
+    NumbersGenerator com = new NumbersGenerator();
 
     @Test
     void getRandomNumber() {
