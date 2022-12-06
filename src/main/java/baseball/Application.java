@@ -9,6 +9,7 @@ public class Application {
     private static final UserFunction user = new UserFunction();
     private static final ComputerFunction com = new ComputerFunction();
     private static final GameFunction game = new GameFunction();
+    private static final GameFunction GAME = new GameFunction();
     private static List<Integer> computerNumList;
 
     public static void main(String[] args) {
@@ -31,6 +32,7 @@ public class Application {
 
             strikeScore = game.userNumListAndComNumListCheckStrikeCount(userNumList, computerNumList);
             ballScore = game.userNumListAndComNumListCheckBallCount(userNumList, computerNumList) - strikeScore;
+            ballScore = GAME.ballCompare(userNumList, computerNumList) - strikeScore;
 
             game.printScoreMsg(strikeScore, ballScore);
 
