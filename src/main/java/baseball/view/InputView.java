@@ -6,5 +6,4 @@ public class InputView {
     public String requestPlayerInput() {
         return Console.readLine();
     }
-
 }
