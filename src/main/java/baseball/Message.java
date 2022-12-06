@@ -8,7 +8,9 @@ public enum Message {
     SCORE_BALL_MATCH("%d볼\n"),
     SCORE_STRIKE_MATCH("%d스트라이크\n"),
     GAME_FINISH_MSG("3개의 숫자를 모두 맞히셨습니다! 게임 종료"),
-    REQUEST_RETRY_MSG("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
+    REQUEST_RETRY_MSG("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요."),
+    RETRY("1"),
+    NO_RETRY("2");
 
 
     private String text;
