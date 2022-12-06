@@ -6,7 +6,7 @@ import java.util.List;
 
 public class NumbersGenerator {
 
-    public List<Integer> createRandomList() {
+    public List<Integer> createNumbers() {
         List<Integer> list = new ArrayList<>();
         while (list.size() != 3) {
             addNumberValidation(list, getRandomNumber());
