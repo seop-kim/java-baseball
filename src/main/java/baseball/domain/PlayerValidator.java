@@ -26,7 +26,7 @@ public class PlayerValidator {
     }
 
     public void retryValidation(String input) {
-        if (!(input.equals(Message.text(Message.RETRY)) || input.equals(Message.text(Message.NO_RETRY)))) {
+        if (!(input.equals(Message.RETRY.text()) || input.equals(Message.NO_RETRY.text()))) {
             throw new IllegalArgumentException();
         }
     }
