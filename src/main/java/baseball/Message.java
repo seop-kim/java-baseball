@@ -19,7 +19,7 @@ public enum Message {
         this.text = text;
     }
 
-    public static String text(Message message) {
-        return message.text;
+    public String text() {
+        return text;
     }
 }
