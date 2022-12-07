@@ -17,13 +17,10 @@ public class Game {
     private static final OutputView OUTPUT_VIEW = new OutputView();
     private static List<Integer> COMPUTER_NUMBERS;
     private static List<Integer> PLAYER_NUMBERS;
-
-    private static final String RETRY = "1";
-    boolean playingGames = false;
-    int ballScore = 0;
-    int strikeScore = 0;
-    String userInput;
-    boolean gameAgain = true;
+    private int ballScore = 0;
+    private int strikeScore = 0;
+    private boolean playingGames = false;
+    private boolean gameAgain = true;
 
     public void go() {
         while (gameAgain) {
@@ -61,6 +58,6 @@ public class Game {
 
     private boolean retry(String input) {
         VALIDATOR.retryValidation(input); // Validator 에서 1 과 2의 검증은 끝난다.
-        return input.equals(RETRY);
+        return input.equals(Message.RETRY.text());
     }
 }
