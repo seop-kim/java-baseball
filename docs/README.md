@@ -10,7 +10,7 @@ https://github.com/woowacourse-precourse/java-baseball/compare/main...LimHeeSang
     - [X] 볼이 1보다 작으면 예외 발생
     - [X] 볼이 9보다 크면 예외 발생
   - [X] 입력 받은 값이 3개의 숫자가 아니면 IllegalArgumentException 발생
-  - [ ] 입력 받은 볼 3개 중 같은 값이 있으면 IllegalArgumentException 발생
+  - [X] 입력 받은 볼 3개 중 같은 값이 있으면 IllegalArgumentException 발생
 - [X] 스트라이크(같은 자리에 같은 값) count 기능
 - [X] 볼(다른 자리에 같은 값) count 기능
 - [X] 낫싱(같은 값이 하나도 없을 경우) 기능
