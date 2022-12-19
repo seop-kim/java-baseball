@@ -6,6 +6,9 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 class BallTest {
 
@@ -54,6 +57,11 @@ class BallTest {
                 .isTrue();
     }
 
-
-
+    @DisplayName("볼의 크기가 0보다 작거나 같으면 에외 발생")
+    @ParameterizedTest
+    @ValueSource(ints = {0, -1, -2, -3})
+    void minimum_exception(int number) {
+        assertThatThrownBy(() -> new Ball(1, number))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 }
