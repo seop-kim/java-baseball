@@ -5,12 +5,12 @@ public class Ball {
     private static final int MINIMUM_BALL_NUMBER = 1;
     private static final int MAXIMUM_BALL_NUMBER = 9;
     private static final String BALL_NUMBER_EXCEPTION_MSG = "볼은 1~9만 입력이 가능합니다.";
-    private final int index;
+    private final int position;
     private final int number;
 
-    public Ball(int index, int number) {
+    public Ball(int position, int number) {
         validate(number);
-        this.index = index;
+        this.position = position;
         this.number = number;
     }
 
@@ -33,7 +33,7 @@ public class Ball {
     }
 
     private boolean isSameIndex(Ball otherBall) {
-        return this.index == otherBall.index;
+        return this.position == otherBall.position;
     }
 
     private boolean isSameNumber(Ball otherBall) {
