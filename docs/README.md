@@ -5,12 +5,22 @@ https://github.com/woowacourse-precourse/java-baseball/compare/main...LimHeeSang
 
 ## 숫자 야구 주요 기능
 - [ ] 컴퓨터가 1~9까지 서로 다른 랜덤 수 3개를 만드는 기능
-- [ ] 플레이어가 1~9까지 서로 다른 수 3 개를 입력하는 기능
-  - [ ] 볼이 1~9의 범위가 넘어가면 IllegalArgumentException 발생
+  - [ ] 1~9 사이의 랜덤 숫자를 만다는 기능
+  
+- [ ] 두명의 플레이어가 플레이를 하는 기능
+  - [ ] 두개의 볼을 비교하여 볼의 상태를 enum으로 반환
+    - [ ] 두개의 볼이 스트라이크일 때 스트라이크 enum 반환
+    - [ ] 두개의 볼이 볼일 때 볼 enum 반환
+    - [ ] 두개의 볼이 낫싱 일때 낫싱 enum 반환
+  - [ ] 플레이 후 게임 결과 반환
+  
+- [X] 플레이어가 1~9까지 서로 다른 수 3 개를 입력하는 기능
+  - [X] 볼이 1~9의 범위가 넘어가면 IllegalArgumentException 발생
     - [X] 볼이 1보다 작으면 예외 발생
     - [X] 볼이 9보다 크면 예외 발생
   - [X] 입력 받은 값이 3개의 숫자가 아니면 IllegalArgumentException 발생
   - [X] 입력 받은 볼 3개 중 같은 값이 있으면 IllegalArgumentException 발생
+  
 - [X] 스트라이크(같은 자리에 같은 값) count 기능
 - [X] 볼(다른 자리에 같은 값) count 기능
 - [X] 낫싱(같은 값이 하나도 없을 경우) 기능
