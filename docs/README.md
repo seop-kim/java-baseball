@@ -1,4 +1,7 @@
 # 기능 구현 목록
+LimHeeSang 님께서 구현한 기록을 쫒아가본다.  
+https://github.com/woowacourse-precourse/java-baseball/compare/main...LimHeeSang:java-baseball:LimHeeSang
+
 
 ## 숫자 야구 주요 기능
 - [ ] 컴퓨터가 1~9까지 서로 다른 랜덤 수 3개를 만드는 기능
