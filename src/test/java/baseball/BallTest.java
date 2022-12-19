@@ -57,10 +57,18 @@ class BallTest {
                 .isTrue();
     }
 
-    @DisplayName("볼의 크기가 0보다 작거나 같으면 에외 발생")
+    @DisplayName("볼의 크기가 1보다 작으면 에외 발생")
     @ParameterizedTest
     @ValueSource(ints = {0, -1, -2, -3})
     void minimum_exception(int number) {
+        assertThatThrownBy(() -> new Ball(1, number))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @DisplayName("볼의 크기가 9보다 크면 에외 발생")
+    @ParameterizedTest
+    @ValueSource(ints = {10, 11, 1000, 50000})
+    void maximum_exception(int number) {
         assertThatThrownBy(() -> new Ball(1, number))
                 .isInstanceOf(IllegalArgumentException.class);
     }

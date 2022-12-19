@@ -8,7 +8,7 @@ https://github.com/woowacourse-precourse/java-baseball/compare/main...LimHeeSang
 - [ ] 플레이어가 1~9까지 서로 다른 수 3 개를 입력하는 기능
   - [ ] 볼이 1~9의 범위가 넘어가면 IllegalArgumentException 발생
     - [X] 볼이 1보다 작으면 예외 발생
-    - [ ] 볼이 9보다 크면 예외 발생
+    - [X] 볼이 9보다 크면 예외 발생
   - [ ] 입력받은 볼 3개 중 같은 값이 있으면 IllegalArgumentException 발생
 - [X] 스트라이크(같은 자리에 같은 값) count 기능
 - [X] 볼(다른 자리에 같은 값) count 기능
