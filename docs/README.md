@@ -8,7 +8,7 @@ https://github.com/woowacourse-precourse/java-baseball/compare/main...LimHeeSang
 - [ ] 플레이어가 1~9까지 서로 다른 수 3 개를 입력하는 기능
 - [X] 스트라이크(같은 자리에 같은 값) count 기능
 - [X] 볼(다른 자리에 같은 값) count 기능
-- [ ] 낫싱(같은 값이 하나도 없을 경우) 기능
+- [X] 낫싱(같은 값이 하나도 없을 경우) 기능
 
 
 ## 예외 처리

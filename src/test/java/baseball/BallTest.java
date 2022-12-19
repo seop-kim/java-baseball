@@ -39,5 +39,21 @@ class BallTest {
                 .isTrue();
     }
 
+    @DisplayName("낫싱 체크")
+    @Test
+    void nothing_check() {
+        // given
+        Ball ball = new Ball(1, 3);
+        Ball otherBall = new Ball(2, 5);
+
+        // when
+        boolean result = ball.isNothing(otherBall);
+
+        // then
+        assertThat(result)
+                .isTrue();
+    }
+
+
 
 }
