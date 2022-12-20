@@ -3,17 +3,19 @@ package baseball;
 import java.util.Objects;
 
 public class GameResult {
+    private static final int DEFAULT_SCORE = 0;
     private int strike;
     private int ball;
 
     public GameResult() {
+        this(DEFAULT_SCORE, DEFAULT_SCORE);
     }
 
     public GameResult(int strike, int ball) {
         this.strike = strike;
         this.ball = ball;
     }
-
+    
     public void addResult(BallStatus status) {
         if (status.isStrike()) {
             strike++;
