@@ -1,10 +1,9 @@
 package baseball;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import java.util.List;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -43,7 +42,85 @@ class PlayerTest {
         );
     }
 
-    @DisplayName("두명의 플레이어가 플레이 3strike")
+    @DisplayName("play : 스트라이크 : 0 , 볼 : 0 = 낫싱")
+    @Test
+    void twoPlayerIsPlayNothing() {
+        // given
+        Player player = new Player(List.of(1, 2, 3));
+        Player otherPlayer = new Player(List.of(4, 5, 6));
+        GameResult result = new GameResult(0, 0);
+
+        // when
+        GameResult gameResult = player.playGame(otherPlayer);
+
+        // then
+        assertThat(gameResult)
+                .isEqualTo(result);
+    }
+
+    @DisplayName("play : 스트라이크 : 1 , 볼 : 1")
+    @Test
+    void play_strike1_ball1() {
+        // given
+        Player player = new Player(List.of(1, 2, 3));
+        Player otherPlayer = new Player(List.of(1, 5, 2));
+        GameResult result = new GameResult(1, 1);
+
+        // when
+        GameResult gameResult = player.playGame(otherPlayer);
+
+        // then
+        assertThat(gameResult)
+                .isEqualTo(result);
+    }
+    @DisplayName("play : 스트라이크 : 1 , 볼 : 2")
+    @Test
+    void play_strike1_ball2() {
+        // given
+        Player player = new Player(List.of(1, 2, 5));
+        Player otherPlayer = new Player(List.of(1, 5, 2));
+        GameResult result = new GameResult(1, 2);
+
+        // when
+        GameResult gameResult = player.playGame(otherPlayer);
+
+        // then
+        assertThat(gameResult)
+                .isEqualTo(result);
+    }
+
+    @DisplayName("play : 스트라이크 : 1 , 볼 : 0")
+    @Test
+    void play_strike1_ball0() {
+        // given
+        Player player = new Player(List.of(1, 4, 6));
+        Player otherPlayer = new Player(List.of(1, 5, 2));
+        GameResult result = new GameResult(1, 0);
+
+        // when
+        GameResult gameResult = player.playGame(otherPlayer);
+
+        // then
+        assertThat(gameResult)
+                .isEqualTo(result);
+    }
+
+    @DisplayName("play : 스트라이크 : 2 , 볼 : 0")
+    @Test
+    void play_strike2_ball0() {
+        // given
+        Player player = new Player(List.of(1, 4, 2));
+        Player otherPlayer = new Player(List.of(1, 5, 2));
+        GameResult result = new GameResult(2, 0);
+
+        // when
+        GameResult gameResult = player.playGame(otherPlayer);
+
+        // then
+        assertThat(gameResult)
+                .isEqualTo(result);
+    }
+    @DisplayName("play : 스트라이크 : 3 , 볼 : 0")
     @Test
     void twoPlayerIsPlay3Strike() {
         // given
@@ -59,14 +136,28 @@ class PlayerTest {
         assertThat(gameResult)
                 .isEqualTo(result);
     }
-
-    @DisplayName("두명의 플레이어가 플레이 3ball")
+    @DisplayName("play : 스트라이크 : 0 , 볼 : 1")
     @Test
-    void twoPlayerIsPlay3Ball() {
+    void play_strike0_ball1() {
         // given
-        Player player = new Player(List.of(1, 2, 3));
-        Player otherPlayer = new Player(List.of(2, 3, 1));
-        GameResult result = new GameResult(0, 3);
+        Player player = new Player(List.of(2, 4, 8));
+        Player otherPlayer = new Player(List.of(1, 5, 2));
+        GameResult result = new GameResult(0, 1);
+
+        // when
+        GameResult gameResult = player.playGame(otherPlayer);
+
+        // then
+        assertThat(gameResult)
+                .isEqualTo(result);
+    }
+    @DisplayName("play : 스트라이크 : 0 , 볼 : 2")
+    @Test
+    void play_strike0_ball2() {
+        // given
+        Player player = new Player(List.of(2, 4, 1));
+        Player otherPlayer = new Player(List.of(1, 5, 2));
+        GameResult result = new GameResult(0, 2);
 
         // when
         GameResult gameResult = player.playGame(otherPlayer);
@@ -76,13 +167,13 @@ class PlayerTest {
                 .isEqualTo(result);
     }
 
-    @DisplayName("두명의 플레이어가 플레이 결과 낫싱")
+    @DisplayName("play : 스트라이크 : 0 , 볼 : 3")
     @Test
-    void twoPlayerIsPlayNothing() {
+    void twoPlayerIsPlay3Ball() {
         // given
         Player player = new Player(List.of(1, 2, 3));
-        Player otherPlayer = new Player(List.of(4, 5, 6));
-        GameResult result = new GameResult(0, 0);
+        Player otherPlayer = new Player(List.of(2, 3, 1));
+        GameResult result = new GameResult(0, 3);
 
         // when
         GameResult gameResult = player.playGame(otherPlayer);
