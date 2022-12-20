@@ -11,7 +11,7 @@ https://github.com/woowacourse-precourse/java-baseball/compare/main...LimHeeSang
   - [ ] 두개의 볼을 비교하여 볼의 상태를 enum으로 반환
     - [X] 두개의 볼이 스트라이크일 때 스트라이크 enum 반환
     - [X] 두개의 볼이 볼일 때 볼 enum 반환
-    - [ ] 두개의 볼이 낫싱 일때 낫싱 enum 반환
+    - [X] 두개의 볼이 낫싱 일때 낫싱 enum 반환
   - [ ] 플레이 후 게임 결과 반환
   
 - [X] 플레이어가 1~9까지 서로 다른 수 3 개를 입력하는 기능

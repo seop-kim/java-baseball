@@ -47,6 +47,6 @@ public class Ball {
         if (isBall(otherBall)) {
             return BallStatus.BALL;
         }
-        return null;
+        return BallStatus.NOTHING;
     }
 }
