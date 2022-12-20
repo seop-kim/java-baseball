@@ -42,14 +42,30 @@ class PlayerTest {
         );
     }
 
-    @DisplayName("두명의 플레이어가 플레이")
+    @DisplayName("두명의 플레이어가 플레이 3strike")
     @Test
-    void twoPlayerIsPlay() {
+    void twoPlayerIsPlay3Strike() {
         // given
         List<Integer> numbers = List.of(1, 2, 3);
         Player player = new Player(numbers);
         Player otherPlayer = new Player(numbers);
         GameResult result = new GameResult(3, 0);
+
+        // when
+        GameResult gameResult = player.playGame(otherPlayer);
+
+        // then
+        Assertions.assertThat(gameResult)
+                .isEqualTo(result);
+    }
+
+    @DisplayName("두명의 플레이어가 플레이 3ball")
+    @Test
+    void twoPlayerIsPlay3Ball() {
+        // given
+        Player player = new Player(List.of(1, 2, 3));
+        Player otherPlayer = new Player(List.of(2, 3, 1));
+        GameResult result = new GameResult(0, 3);
 
         // when
         GameResult gameResult = player.playGame(otherPlayer);
