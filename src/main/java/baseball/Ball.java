@@ -25,7 +25,7 @@ public class Ball {
     }
 
     public boolean isBall(Ball otherBall) {
-        return isSameIndex(otherBall) && isSameNumber(otherBall);
+        return !isSameIndex(otherBall) && isSameNumber(otherBall);
     }
 
     public boolean isNothing(Ball otherBall) {
@@ -43,6 +43,9 @@ public class Ball {
     public BallStatus play(Ball otherBall) {
         if (isStrike(otherBall)) {
             return BallStatus.STRIKE;
+        }
+        if (isBall(otherBall)) {
+            return BallStatus.BALL;
         }
         return null;
     }
