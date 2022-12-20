@@ -3,6 +3,7 @@ package baseball;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import java.util.List;
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -40,4 +41,22 @@ class PlayerTest {
                 Arguments.of(2, 2, 1)
         );
     }
+
+    @DisplayName("두명의 플레이어가 플레이")
+    @Test
+    void twoPlayerIsPlay() {
+        // given
+        List<Integer> numbers = List.of(1, 2, 3);
+        Player player = new Player(numbers);
+        Player otherPlayer = new Player(numbers);
+        GameResult result = new GameResult(3, 0);
+
+        // when
+        GameResult gameResult = player.playGame(otherPlayer);
+
+        // then
+        Assertions.assertThat(gameResult)
+                .isEqualTo(result);
+    }
+
 }
