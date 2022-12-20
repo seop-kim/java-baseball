@@ -20,15 +20,15 @@ public class Ball {
         }
     }
 
-    public boolean isStrike(Ball otherBall) {
+    private boolean isStrike(Ball otherBall) {
         return isSameIndex(otherBall) && isSameNumber(otherBall);
     }
 
-    public boolean isBall(Ball otherBall) {
+    private boolean isBall(Ball otherBall) {
         return !isSameIndex(otherBall) && isSameNumber(otherBall);
     }
 
-    public boolean isNothing(Ball otherBall) {
+    private boolean isNothing(Ball otherBall) {
         return !isSameIndex(otherBall) && !isSameNumber(otherBall);
     }
 
