@@ -1,5 +1,6 @@
 package baseball;
 
+import static org.assertj.core.api.Assertions.*;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import java.util.List;
@@ -55,7 +56,7 @@ class PlayerTest {
         GameResult gameResult = player.playGame(otherPlayer);
 
         // then
-        Assertions.assertThat(gameResult)
+        assertThat(gameResult)
                 .isEqualTo(result);
     }
 
@@ -71,8 +72,23 @@ class PlayerTest {
         GameResult gameResult = player.playGame(otherPlayer);
 
         // then
-        Assertions.assertThat(gameResult)
+        assertThat(gameResult)
                 .isEqualTo(result);
     }
 
+    @DisplayName("두명의 플레이어가 플레이 결과 낫싱")
+    @Test
+    void twoPlayerIsPlayNothing() {
+        // given
+        Player player = new Player(List.of(1, 2, 3));
+        Player otherPlayer = new Player(List.of(4, 5, 6));
+        GameResult result = new GameResult(0, 0);
+
+        // when
+        GameResult gameResult = player.playGame(otherPlayer);
+
+        // then
+        assertThat(gameResult)
+                .isEqualTo(result);
+    }
 }
