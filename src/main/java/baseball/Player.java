@@ -11,6 +11,7 @@ public class Player {
     private static final int NUMBER_INDEX_ZERO = 0;
     private static final int NUMBER_INDEX_ONE = 1;
     private static final int NUMBER_INDEX_TWO = 2;
+    private static final int START_POSITION_NUMBER = 1;
 
     private final List<Ball> balls;
 
@@ -43,8 +44,9 @@ public class Player {
     }
 
     private List<Ball> convertBall(List<Integer> numbers) {
+        AtomicInteger position = new AtomicInteger(START_POSITION_NUMBER);
         return numbers.stream()
-                .map(number -> new Ball(new AtomicInteger().getAndIncrement(), number))
+                .map(number -> new Ball(position.getAndIncrement(), number))
                 .collect(Collectors.toList());
     }
 
